@@ -17,5 +17,7 @@ jobs:
       run: sudo apt install openjdk-17-jre-headless -y
     - name: setup maven
       run: sudo apt install maven -y
+    - name: build package
+      run: mvn clean package -DskipTests
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
